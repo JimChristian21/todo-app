@@ -25,8 +25,14 @@ function App() {
             <div>
               <input type="checkbox"/>
               <label className="text-base">Run</label>
-              <button type="button" className="text-base">Edit</button>
-              <button type="button" className="text-base">Delete</button>
+              <button type="button" className="text-base border-2 rounded mx-1 p-1">Edit</button>
+              <button type="button" className="text-base border-2 rounded mx-1 p-1">Delete</button>
+            </div>
+            <div>
+              <input type="checkbox"/>
+              <label className="text-base">Swim</label>
+              <button type="button" className="text-base border-2 rounded mx-1 p-1">Edit</button>
+              <button type="button" className="text-base border-2 rounded mx-1 p-1">Delete</button>
             </div>
           </div>
         </div>
