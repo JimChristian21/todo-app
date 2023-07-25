@@ -1,39 +1,64 @@
 import './App.css';
+import { 
+  faPlus, 
+  faTrash,
+  faPen
+} from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 
 function App() {
   return (
     <div className="">
       <header className="">
-        <div className="container p-5 shadow bg-white-400 w-1/3 rounded mx-auto mt-5">
+        <div className="container p-5 shadow bg-sky-600 w-10/12 h-96 rounded mx-auto mt-5">
           <div>
             <h1>Todo App: </h1>
           </div>
-          <div>
+          <div className="mt-3 w-full">
             <input 
               type="text" 
-              className="pl-2 p-2 border-2 text-base rounded border-gray"
+              className="pl-2 p-2 border-2 text-base rounded border-black w-11/12"
               placeholder="Add new todo"
             />
             <button 
               type="button" 
-              className="ml-6 p-2 border-2 text-base rounded border-black"
+              className="p-2 border-2 text-base rounded border-black text-black bg-sky-200 w-1/12"
               >
-                Add
+                <FontAwesomeIcon icon={faPlus} />
             </button>
           </div>
+
+          <hr className="mt-5"/>
           
-          <div className="mt-5">
-            <div>
-              <input type="checkbox"/>
-              <label className="text-base">Run</label>
-              <button type="button" className="text-base border-2 rounded mx-1 p-1">Edit</button>
-              <button type="button" className="text-base border-2 rounded mx-1 p-1">Delete</button>
+          <div className="mt-5 flex flex-col">
+            <div className="w-100 bg-slate-200 p-1 mb-2 rounded flex justify-between content-center">
+              <span className="mt-3">
+                <input type="checkbox" className="ml-2"/>
+                <label className="text-base ml-2">Run</label>
+              </span>
+              <span>
+                <button type="button" className="text-lg border-2 rounded p-2 hover:text-sky-700">
+                  <FontAwesomeIcon icon={faPen} />
+                </button>
+                <button type="button" className="text-lg border-2 rounded p-2 hover:text-sky-700">
+                  <FontAwesomeIcon icon={faTrash} />
+                </button>
+              </span>
             </div>
-            <div>
-              <input type="checkbox"/>
-              <label className="text-base">Swim</label>
-              <button type="button" className="text-base border-2 rounded mx-1 p-1">Edit</button>
-              <button type="button" className="text-base border-2 rounded mx-1 p-1">Delete</button>
+            <div className="w-100 bg-slate-200 p-1 mb-2 rounded flex justify-between">
+              <span className="mt-3">
+                <input type="checkbox" className="ml-2"/>
+                <label className="text-base ml-2">Swim</label>
+              </span>
+              <span>
+                <button type="button" className="text-lg border-2 rounded p-2 hover:text-sky-700">
+                  <FontAwesomeIcon icon={faPen} />
+                </button>
+                <button type="button" className="text-lg border-2 rounded p-2 hover:text-sky-700">
+                  <FontAwesomeIcon icon={faTrash} />
+                </button>
+              </span>
             </div>
           </div>
         </div>
