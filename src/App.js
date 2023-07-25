@@ -2,14 +2,17 @@ import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header bg-black">
-        <div className="container p-5 bg-blue-500">
+    <div className="">
+      <header className="">
+        <div className="container p-5 shadow bg-white-400 w-1/3 rounded mx-auto mt-5">
           <div>
-            <label className="">Todo: </label>
+            <h1>Todo App: </h1>
+          </div>
+          <div>
             <input 
               type="text" 
-              className="pl-2 p-2 border-2 text-base rounded border-black"
+              className="pl-2 p-2 border-2 text-base rounded border-gray"
+              placeholder="Add new todo"
             />
             <button 
               type="button" 
@@ -18,10 +21,8 @@ function App() {
                 Add
             </button>
           </div>
-
-          <hr className="mt-5"/>
           
-          <div>
+          <div className="mt-5">
             <div>
               <input type="checkbox"/>
               <label className="text-base">Run</label>
