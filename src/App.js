@@ -5,9 +5,19 @@ import {
   faPen
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useState } from 'react';
 
 
 function App() {
+
+  const [todoList, setTodoList] = useState([]);
+  const [todo, setTodo] = useState('');
+
+  const handleInput = (e) => {
+    console.log(e.target.value);
+    setTodo(e.target.value);
+  }
+
   return (
     <div className="">
       <header className="">
@@ -20,6 +30,8 @@ function App() {
               type="text" 
               className="pl-2 p-2 border-2 text-base rounded border-black w-11/12"
               placeholder="Add new todo"
+              value={todo}
+              onChange={handleInput}
             />
             <button 
               type="button" 
