@@ -14,9 +14,35 @@ function App() {
   const [todo, setTodo] = useState('');
 
   const handleInput = (e) => {
-    console.log(e.target.value);
     setTodo(e.target.value);
   }
+
+  const handleAdd = () => {
+    setTodoList([
+      ...todoList,
+      todo
+    ]);
+    setTodo('');
+  }
+
+  const todos = todoList.map((item, i) => {
+    return (
+      <div key={i} className="w-100 bg-slate-200 p-1 mb-2 rounded flex justify-between content-center">
+        <span className="mt-3">
+          <input type="checkbox" className="ml-2"/>
+          <label className="text-base ml-2">{item}</label>
+        </span>
+        <span>
+          <button type="button" className="text-lg border-2 rounded p-2 hover:text-sky-700">
+            <FontAwesomeIcon icon={faPen} />
+          </button>
+          <button type="button" className="text-lg border-2 rounded p-2 hover:text-sky-700">
+            <FontAwesomeIcon icon={faTrash} />
+          </button>
+        </span>
+      </div>
+    );
+  });
 
   return (
     <div className="">
@@ -36,6 +62,7 @@ function App() {
             <button 
               type="button" 
               className="p-2 border-2 text-base rounded border-black text-black bg-sky-200 w-1/12"
+              onClick={handleAdd}
               >
                 <FontAwesomeIcon icon={faPlus} />
             </button>
@@ -44,34 +71,7 @@ function App() {
           <hr className="mt-5"/>
           
           <div className="mt-5 flex flex-col">
-            <div className="w-100 bg-slate-200 p-1 mb-2 rounded flex justify-between content-center">
-              <span className="mt-3">
-                <input type="checkbox" className="ml-2"/>
-                <label className="text-base ml-2">Run</label>
-              </span>
-              <span>
-                <button type="button" className="text-lg border-2 rounded p-2 hover:text-sky-700">
-                  <FontAwesomeIcon icon={faPen} />
-                </button>
-                <button type="button" className="text-lg border-2 rounded p-2 hover:text-sky-700">
-                  <FontAwesomeIcon icon={faTrash} />
-                </button>
-              </span>
-            </div>
-            <div className="w-100 bg-slate-200 p-1 mb-2 rounded flex justify-between">
-              <span className="mt-3">
-                <input type="checkbox" className="ml-2"/>
-                <label className="text-base ml-2">Swim</label>
-              </span>
-              <span>
-                <button type="button" className="text-lg border-2 rounded p-2 hover:text-sky-700">
-                  <FontAwesomeIcon icon={faPen} />
-                </button>
-                <button type="button" className="text-lg border-2 rounded p-2 hover:text-sky-700">
-                  <FontAwesomeIcon icon={faTrash} />
-                </button>
-              </span>
-            </div>
+            {todos}
           </div>
         </div>
       </header>
