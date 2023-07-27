@@ -1,10 +1,4 @@
 import './App.css';
-import { 
-  faPlus, 
-  faTrash,
-  faPen
-} from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState } from 'react';
 import AddForm from './components/AddForm';
 import Todo from './components/Todo';
@@ -27,9 +21,13 @@ function App() {
     setTodo('');
   }
 
+  const handleDelete = (todo) => {
+    setTodoList(todoList.filter((tl) => tl !== todo));
+  }
+
   const todos = todoList.map((item, i) => {
     return (
-      <Todo key={i} todo={item}/>
+      <Todo key={i} todo={item} handleDelete={handleDelete}/>
     );
   });
 
