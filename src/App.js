@@ -6,6 +6,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState } from 'react';
+import AddForm from './components/AddForm';
 
 
 function App() {
@@ -45,28 +46,14 @@ function App() {
   });
 
   return (
-    <div className="">
-      <header className="">
-        <div className="container p-5 shadow bg-sky-600 w-10/12 h-96 rounded mx-auto mt-5">
+    <div>
+      <header>
+        <div className="container p-5 shadow bg-sky-600 w-10/12 min-h-96 rounded mx-auto mt-5">
           <div>
             <h1>Todo App: </h1>
           </div>
-          <div className="mt-3 w-full">
-            <input 
-              type="text" 
-              className="pl-2 p-2 border-2 text-base rounded border-black w-11/12"
-              placeholder="Add new todo"
-              value={todo}
-              onChange={handleInput}
-            />
-            <button 
-              type="button" 
-              className="p-2 border-2 text-base rounded border-black text-black bg-sky-200 w-1/12"
-              onClick={handleAdd}
-              >
-                <FontAwesomeIcon icon={faPlus} />
-            </button>
-          </div>
+          
+          <AddForm todo={todo} handleAdd={handleAdd} handleInput={handleInput} />
 
           <hr className="mt-5"/>
           
