@@ -14,11 +14,16 @@ function App() {
   }
 
   const handleAdd = () => {
-    setTodoList([
-      ...todoList,
-      todo
-    ]);
-    setTodo('');
+
+    if (todo != '') {
+
+      setTodoList([
+        ...todoList,
+        todo
+      ]);
+      
+      setTodo('');
+    } 
   }
 
   const handleDelete = (todo) => {
