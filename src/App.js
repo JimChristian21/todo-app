@@ -13,13 +13,32 @@ function App() {
     setTodo(e.target.value);
   }
 
+  const handleEdit = (newTodo) => {
+
+    let todos = todoList.map((tl) => {
+      
+      console.log(tl.id, newTodo.id);
+      if (tl.id == newTodo.id) {
+
+        return newTodo;
+      }
+
+      return tl;
+    });
+
+    setTodoList(todos);
+  }
+
   const handleAdd = () => {
 
-    if (todo != '') {
+    if (todo !== '') {
 
       setTodoList([
         ...todoList,
-        todo
+        {
+          id: todoList.length + 1,
+          name: todo
+        }
       ]);
       
       setTodo('');
@@ -27,12 +46,12 @@ function App() {
   }
 
   const handleDelete = (todo) => {
-    setTodoList(todoList.filter((tl) => tl !== todo));
+    setTodoList(todoList.filter((tl) => tl.id !== todo.id));
   }
 
   const todos = todoList.map((item, i) => {
     return (
-      <Todo key={i} todo={item} handleDelete={handleDelete}/>
+      <Todo key={item.id} todo={item} handleDelete={handleDelete}  handleEdit={handleEdit}/>
     );
   });
 
@@ -44,7 +63,7 @@ function App() {
             <h1>Todo App: </h1>
           </div>
           
-          <AddForm todo={todo} handleAdd={handleAdd} handleInput={handleInput} />
+          <AddForm todo={todo} handleAdd={handleAdd} handleInput={handleInput}/>
 
           <hr className="mt-5"/>
           
