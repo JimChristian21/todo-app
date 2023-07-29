@@ -3,13 +3,12 @@ import { faTrash, faPen, faCancel, faSave } from "@fortawesome/free-solid-svg-ic
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 
-const Todo = ({todo, handleDelete, handleEdit}) => {
+const Todo = ({todo, handleDelete, handleEdit, updateStatus}) => {
 
     const [isEdit, setIsEdit] = useState(false);
     const [newTodo, setNewTodo] = useState(todo.name);
 
     const handleInput = (e) => {
-
         setNewTodo(e.target.value);
     }
 
@@ -34,8 +33,12 @@ const Todo = ({todo, handleDelete, handleEdit}) => {
             { !isEdit && (
                 <>
                     <div className="w-11/12 flex flex-row justify-start content-center">
-                        <input type="checkbox" className="ml-2"/>
-                        <label className="text-base ml-2 mt-3">{todo.name}</label>
+                        <input type="checkbox" className="ml-2" onChange={(e) => updateStatus(e, todo)}/>
+                        <label 
+                           className={"text-base ml-2 mt-3 " + ((todo.completed) ? "line-through" : "") }
+                        >
+                            {todo.name}
+                        </label>
                     </div>
                     <div className="flex flex-row">
                         <button type="button" className="text-lg border-2 rounded p-2 hover:text-sky-700" onClick={() => setIsEdit(true)}>

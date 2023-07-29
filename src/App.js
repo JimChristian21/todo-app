@@ -17,7 +17,6 @@ function App() {
 
     let todos = todoList.map((tl) => {
       
-      console.log(tl.id, newTodo.id);
       if (tl.id == newTodo.id) {
 
         return newTodo;
@@ -25,6 +24,46 @@ function App() {
 
       return tl;
     });
+
+    setTodoList(todos);
+  }
+
+  const updateStatus = (event, todoValue) => {
+  
+    let todos;
+
+    if (event.target.checked) {
+
+      todos = todoList.map((tl) => {
+      
+        if (tl.id == todoValue.id) {
+  
+          return {
+            ...todoValue,
+            completed: true
+          };
+        }
+  
+        return tl;
+      });
+  
+    } else {
+
+      todos = todoList.map((tl) => {
+      
+        if (tl.id == todoValue.id
+            && todoValue.status !== false
+        ) {
+  
+          return {
+            ...todoValue,
+            completed: false
+          };
+        }
+  
+        return tl;
+      });
+    }
 
     setTodoList(todos);
   }
@@ -37,7 +76,8 @@ function App() {
         ...todoList,
         {
           id: todoList.length + 1,
-          name: todo
+          name: todo,
+          completed: false
         }
       ]);
       
@@ -51,7 +91,7 @@ function App() {
 
   const todos = todoList.map((item, i) => {
     return (
-      <Todo key={item.id} todo={item} handleDelete={handleDelete}  handleEdit={handleEdit}/>
+      <Todo key={item.id} todo={item} handleDelete={handleDelete}  handleEdit={handleEdit} updateStatus={updateStatus}/>
     );
   });
 
