@@ -98,7 +98,7 @@ function App() {
   return (
     <div>
       <header>
-        <div className="container p-5 shadow bg-sky-600 w-10/12 min-h-96 rounded mx-auto mt-5">
+        <div className="container p-5 shadow bg-sky-600 w-10/12 rounded mx-auto mt-5 h-96">
           <div>
             <h1>Todo App: </h1>
           </div>
@@ -108,7 +108,15 @@ function App() {
           <hr className="mt-5"/>
           
           <div className="mt-5 flex flex-col">
-            {todos}
+            { todoList.length > 0 && 
+              todos
+            }
+
+            { todoList.length == 0 && 
+              <div className="flex justify-center content-center text-slate-200">
+                  <p className='text-4xl'>No work to be done</p>
+              </div>
+            }
           </div>
         </div>
       </header>
