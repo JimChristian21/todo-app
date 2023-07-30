@@ -98,7 +98,7 @@ function App() {
   return (
     <div>
       <header>
-        <div className="container p-5 shadow bg-sky-600 w-10/12 rounded mx-auto mt-5 h-96">
+        <div className="container p-5 shadow bg-sky-600 w-10/12 rounded mx-auto mt-5 h-96 min-h-96">
           <div>
             <h1>Todo App: </h1>
           </div>
