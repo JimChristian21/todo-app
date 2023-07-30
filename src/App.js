@@ -17,7 +17,7 @@ function App() {
 
     let todos = todoList.map((tl) => {
       
-      if (tl.id == newTodo.id) {
+      if (tl.id === newTodo.id) {
 
         return newTodo;
       }
@@ -36,7 +36,7 @@ function App() {
 
       todos = todoList.map((tl) => {
       
-        if (tl.id == todoValue.id) {
+        if (tl.id === todoValue.id) {
   
           return {
             ...todoValue,
@@ -51,7 +51,7 @@ function App() {
 
       todos = todoList.map((tl) => {
       
-        if (tl.id == todoValue.id
+        if (tl.id === todoValue.id
             && todoValue.status !== false
         ) {
   
@@ -112,7 +112,7 @@ function App() {
               todos
             }
 
-            { todoList.length == 0 && 
+            { todoList.length === 0 && 
               <div className="flex justify-center content-center text-slate-200">
                   <p className='text-4xl'>No work to be done</p>
               </div>
