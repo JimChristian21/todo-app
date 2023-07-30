@@ -20,7 +20,8 @@ const Todo = ({todo, handleDelete, handleEdit, updateStatus}) => {
 
             handleEdit({
                 id: todo.id,
-                name: newTodo
+                name: newTodo,
+                completed: todo.completed
             });
         }
 
@@ -33,7 +34,7 @@ const Todo = ({todo, handleDelete, handleEdit, updateStatus}) => {
             { !isEdit && (
                 <>
                     <div className="w-11/12 flex flex-row justify-start content-center">
-                        <input type="checkbox" className="ml-2" onChange={(e) => updateStatus(e, todo)}/>
+                        <input type="checkbox" className="ml-2" onChange={(e) => updateStatus(e, todo)} checked={todo.completed}/>
                         <label 
                            className={"text-base ml-2 mt-3 " + ((todo.completed) ? "line-through" : "") }
                         >
@@ -76,7 +77,7 @@ const Todo = ({todo, handleDelete, handleEdit, updateStatus}) => {
 
                                 setIsEdit(false);
 
-                                todo !== newTodo
+                                todo.name !== newTodo
                                     && setNewTodo(todo.name);
                                        
                             }}
